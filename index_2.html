@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Apartment Rental</title>
+</head>
+<body>
+    <h1>Program Apartment Rental</h1>
+    <label for="water">Water Unit:</label>
+    <input type="number" id="water_unit">
+    <br>
+    <label for="electricity">Electricity Unit:</label> 
+    <input type="number" id="electricity_unit">
+    <br>
+    <label for="phone">Phone Minute:</label>
+    <input type="number" id="phone_minute">
+    <br>
+    <button type="button" onclick="main()">Calculate Bill</button>
+    <div id="result"></div>
+
+    <script>
+        function main() {
+            const waterUnit = parseFloat(document.getElementById("water_unit").value);
+            console.log(waterUnit);
+            const electricityUnit = parseFloat(document.getElementById("electricity_unit").value);
+            console.log(electricityUnit);
+            const phoneMinute = parseFloat(document.getElementById("phone_minute").value);
+            console.log(phoneMinute);
+
+            const waterBill = waterUnit * 10;
+            const electricityBill = electricityUnit * 25;
+            const phoneBill = phoneMinute * 5;
+
+            const totalBill = waterBill + electricityBill + phoneBill;
+
+            document.getElementById("result").innerText = "Your total apartment rental bill is " + totalBill.toFixed(2) + " Baht.";
+        }
+    </script>
+</body>
+</html>
