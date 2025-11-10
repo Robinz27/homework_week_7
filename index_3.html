@@ -7,5 +7,36 @@
 </head>
 <body>
     <h1>Mineral Water Billing Program</h1>
+
+    <label for="bottles">Number of Bottles:</label>
+    <input type="number" id="bottles" name="bottles" min="0">
+    <button onclick="calculate()">Calculate</button>
+
+    <div id="result"></div>
+
+    <script>
+        function calculate() {
+            const bottles = parseInt(document.getElementById('bottles').value);
+
+            const pricePerBottle = 10;
+            const pricePerDozen = 100;
+            const vatRate = 0.07;
+
+            const dozen = Math.floor(bottles / 12);
+            const remaining = bottles % 12;
+
+            const totalBeforeTax = (dozen * pricePerDozen) + (remaining * pricePerBottle);
+
+            const vat = totalBeforeTax * vatRate;
+
+            const total = totalBeforeTax + vat;
+
+            document.getElementById('result').innerText =
+                `Total bottles: ${bottles} (${dozen} dozen and ${remaining} bottles)\n` +
+                `Price before tax: ${totalBeforeTax.toFixed(2)} Baht\n` +
+                `VAT (7%): ${vat.toFixed(2)} Baht\n` +
+                `Total price: ${total.toFixed(2)} Baht`;
+        }
+    </script>
 </body>
 </html>
