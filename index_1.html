@@ -24,6 +24,12 @@
             console.log(W);
             const H = parseFloat(document.getElementById("height").value) / 100;
             console.log(H);
+            const Alert = document.getElementById("result");
+
+            if (W <= 0 || H <= 0 || isNaN(W) || isNaN(H)) {
+                Alert.innerText = "Need Input";
+                return;
+            }
 
             const bmi = W / (H * H);
             document.getElementById("result").innerText = "Your BMI is " + bmi.toFixed(2);

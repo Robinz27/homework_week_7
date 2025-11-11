@@ -32,9 +32,30 @@
             const electricityBill = electricityUnit * 25;
             const phoneBill = phoneMinute * 5;
 
+            const Alert = document.getElementById("result");
+
             const totalBill = waterBill + electricityBill + phoneBill;
 
-            document.getElementById("result").innerText = "Your total apartment rental bill is " + totalBill.toFixed(2) + " Baht.";
+            if(waterUnit <= 0 || electricityUnit <= 0 || phoneMinute <= 0 || isNaN(waterUnit) || isNaN(electricityUnit) || isNaN(phoneMinute)){
+                Alert.innerText = "Need Input";
+                return;
+            }
+
+            document.getElementById("result").innerText = 
+            "Water Unit: "+
+            waterUnit+
+            " * 10 = "+
+            waterBill+
+            "\nElectric Unit: "+
+            electricityUnit+
+            " * 25 = "+
+            electricityBill+
+            "\nPhone Minute: "+
+            phoneMinute+
+            " * 5 = "+
+            phoneBill+
+            "\nYour total apartment rental bill is "
+            + totalBill.toFixed(2) + " Baht.";
         }
     </script>
 </body>
